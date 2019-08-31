@@ -49,9 +49,8 @@ bool hc12_tx_state;
 bool max485_tx_mode = false;
 bool toggle_state;
 
-// 25000/1200(HC12_BAUD) =  20.83ms; // 1T * 2.5 = T2.5
-// add extra 15ms 
-#define TX_MODE_OFF_DELAY_TIME 35   // ms
+// 20000/1200(HC12_BAUD) =  16.6ms; // 1T * 2.0 = T2.0
+#define TX_MODE_OFF_DELAY_TIME 17   // ms
 unsigned long tx_mode_off_time;
 
 void setup() {
@@ -106,7 +105,7 @@ void loop() {
   digitalWrite(MAX485_RE_PIN, max485_tx_mode); // disable MAX485 receive (active low)
 
   // echo RX/TX signal on relevant pins
-  //digitalWrite(HC12_RXD_PIN, digitalRead(MAX485_RO_PIN));
+  digitalWrite(HC12_RXD_PIN, digitalRead(MAX485_RO_PIN));
   digitalWrite(MAX485_DI_PIN, hc12_tx_state);
 
   // visual indication of data on LED
@@ -114,7 +113,7 @@ void loop() {
   //digitalWrite(LED_PIN, !max485_tx_mode);
   
   // for cycle time measurements with scope
-  toggle_state = !toggle_state;
-  digitalWrite(TOGGLE_PIN, toggle_state);
+  //toggle_state = !toggle_state;
+  //digitalWrite(TOGGLE_PIN, toggle_state);
   
 }
