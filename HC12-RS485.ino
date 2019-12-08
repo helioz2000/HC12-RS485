@@ -39,7 +39,7 @@
 #define HC12_SET_PIN 7 // pin 6 (Digital)
 //#define x 6 // pin 7 (Digital)
 #define LED_PIN 5          // pin 8 (Digital)
-//#define x 4 // pin 19 (Digital)
+//#define x 4 // pin 9 (Digital)
 #define TOGGLE_PIN 3 // pin 10 (Digital)
 #define MAX485_DI_PIN 2 // pin 11 (Digital)
 #define MAX485_RO_PIN 1 // pin 12 (Digital)
